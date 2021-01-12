@@ -54,5 +54,12 @@ class Event
     inventory_hash
   end
 
+  def overstocked_items
+    items = all_items
+    items.find_all do |item|
+      total_quantity(item) > 50 && trucks_selling_item(item).count > 1
+    end
+  end
+
 
 end
