@@ -92,17 +92,23 @@ class EventTest < Minitest::Test
     assert_equal 100, event.total_quantity(item1)
     assert_equal 7, event.total_quantity(item2)
     assert_equal 50, event.total_quantity(item4)
+    assert_equal 35, event.total_quantity(item3)
 
     assert_equal [food_truck1, food_truck3], event.trucks_selling_item(item1)
     assert_equal [food_truck1], event.trucks_selling_item(item2)
+    assert_equal [food_truck2], event.trucks_selling_item(item4)
     assert_equal [food_truck2, food_truck3], event.trucks_selling_item(item3)
 
-    # expected = {
-    #     item1 => {quantity: 100, food_trucks: [food_truck1, food_truck3]},
-    #     item2 => {quantity: 7, food_trucks: [food_truck1]},
-    #     item4 => {quantity: 50, food_trucks: [food_truck2]},
-    #     item3 => {quantity: 35, food_trucks: [food_truck2, food_truck3]}
-    #     }
+    assert_equal [item1, item2, item4, item3], event.all_items
+
+    expected = {
+        item1 => {quantity: 100, food_trucks: [food_truck1, food_truck3]},
+        item2 => {quantity: 7, food_trucks: [food_truck1]},
+        item4 => {quantity: 50, food_trucks: [food_truck2]},
+        item3 => {quantity: 35, food_trucks: [food_truck2, food_truck3]}
+        }
+
+    assert_equal expected, event.total_inventory 
 
   end
 

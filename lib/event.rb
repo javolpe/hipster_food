@@ -37,7 +37,21 @@ class Event
         memo
       end
     end
+  end
 
+  def all_items
+    array = @food_trucks.flat_map{|truck| truck.inventory.keys}
+    array = array.uniq
+  end
+
+  def total_inventory
+    items = all_items
+    inventory_hash = {}
+    items.map do |item|
+      inventory_hash[item] = {quantity: total_quantity(item), 
+                              food_trucks: trucks_selling_item(item)} 
+    end
+    inventory_hash
   end
 
 
