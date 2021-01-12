@@ -66,4 +66,5 @@ class EventTest < Minitest::Test
 
     assert_equal [food_truck1, food_truck3], event.food_trucks_that_sell(item1)
   end
+
 end

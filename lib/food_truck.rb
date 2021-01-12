@@ -24,4 +24,6 @@ class FoodTruck
     end
   end
 
+  
+
 end
