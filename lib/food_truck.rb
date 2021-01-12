@@ -24,6 +24,12 @@ class FoodTruck
     end
   end
 
-  
+  def potential_revenue
+    inventory.reduce(0) do |memo, item|
+      memo + (item[0].price * item[1]) 
+    end
+  end
+
+
 
 end

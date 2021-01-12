@@ -18,4 +18,20 @@ class Event
   def food_trucks_that_sell(item)
     food_trucks.find_all{|truck| truck.inventory.keys.include?(item)}
   end
+
+  def total_quantity(item)
+    @food_trucks.reduce(0) do |memo, truck|
+      if truck.inventory.keys.include?(item)
+       memo += truck.inventory[item]
+      end
+    else
+      memo
+    end
+  end
+
+  def trucks_selling_item(item)
+    
+  end
+
+
 end
