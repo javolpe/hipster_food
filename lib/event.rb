@@ -61,5 +61,13 @@ class Event
     end
   end
 
+  def sorted_item_list
+    items = all_items
+    in_stock = items.find_all do |item|
+      total_quantity(item) > 0
+    end
+    item_names = in_stock.map{|item| item.name}.sort
+  end
+
 
 end
