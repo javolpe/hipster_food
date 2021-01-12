@@ -4,6 +4,7 @@ require 'pry'
 require './lib/item'
 require './lib/food_truck'
 require './lib/event'
+require 'date'
 
 class EventTest < Minitest::Test
   def test_it_exists_and_has_attributes
@@ -162,5 +163,11 @@ class EventTest < Minitest::Test
 
     assert_equal expected, event.sorted_item_list
   end
+
+  # def test_date_works
+  #   event = Event.new("South Pearl Street Farmers Market")
+    
+  #   assert_equal "12/01/2021", event.date
+  # end
 
 end
