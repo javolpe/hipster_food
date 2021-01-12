@@ -30,7 +30,14 @@ class Event
   end
 
   def trucks_selling_item(item)
-    
+    @food_trucks.reduce([]) do |memo, truck|
+      if truck.inventory.keys.include?(item)
+        memo << truck
+      else 
+        memo
+      end
+    end
+
   end
 
 
